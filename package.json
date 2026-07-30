@@ -1,0 +1,65 @@
+{
+    "name": "envgen",
+    "version": "0.0.1",
+    "description": "Generate .env.example files from existing .env files while preserving formatting and comments.",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bin": {
+        "envgen": "./dist/cli.js"
+    },
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "test:watch": "vitest",
+        "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+        "lint:fix": "eslint 'src/**/*.ts' 'test/**/*.ts' --fix",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "prepare": "husky",
+        "typecheck": "tsc --noEmit",
+        "changeset": "changeset",
+        "version": "changeset version",
+        "release": "npm run build && changeset publish"
+    },
+    "keywords": [
+        "env",
+        "dotenv",
+        "env-example",
+        "generator",
+        "cli"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "chokidar": "^5.0.0",
+        "commander": "^15.0.0",
+        "picocolors": "^1.1.1"
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.31.1",
+        "@types/node": "^26.1.2",
+        "@typescript-eslint/eslint-plugin": "^8.65.0",
+        "@typescript-eslint/parser": "^8.65.0",
+        "@vitest/coverage-v8": "^4.1.10",
+        "eslint": "^10.8.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.2.0",
+        "prettier": "^3.9.6",
+        "tsup": "^8.5.1",
+        "typescript": "^5.6.3",
+        "vitest": "^4.1.10"
+    }
+}
