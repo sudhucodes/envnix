@@ -1,11 +1,11 @@
-# envgen
+# envnix
 
 > A fast, production-ready Node.js CLI to generate `.env.example` files from existing `.env` files while preserving formatting, ordering, and comments.
 
-![npm](https://img.shields.io/npm/v/envgen)
-![license](https://img.shields.io/npm/l/envgen)
+![npm](https://img.shields.io/npm/v/envnix)
+![license](https://img.shields.io/npm/l/envnix)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)
-![GitHub Actions](https://github.com/sudhucodes/envgen/actions/workflows/ci.yml/badge.svg)
+![GitHub Actions](https://github.com/sudhucodes/envnix/actions/workflows/ci.yml/badge.svg)
 
 ## Features
 
@@ -15,20 +15,20 @@
 - **CI / Check mode**: Ensure your examples are always in sync with your .env files on GitHub Actions.
 - **Watch mode**: Regenerates `.env.example` on the fly when you modify `.env` files.
 - **Zero runtime dependencies (mostly)**: Uses only `commander`, `chokidar`, and `picocolors`.
-- **Configurable**: Configurable via `envgen.config.json`.
+- **Configurable**: Configurable via `envnix.config.json`.
 
 ## Installation
 
 You can use it with `npx` without installing:
 
 ```bash
-npx envgen generate
+npx envnix generate
 ```
 
 Or install it locally as a dev dependency:
 
 ```bash
-npm install -D envgen
+npm install -D envnix
 ```
 
 ## Usage
@@ -38,7 +38,7 @@ npm install -D envgen
 By default, this command reads `.env` and generates `.env.example`.
 
 ```bash
-envgen generate
+envnix generate
 ```
 
 ### Options
@@ -59,7 +59,7 @@ envgen generate
 Check if `.env.example` is missing keys from `.env` or has extra/duplicate keys.
 
 ```bash
-envgen validate
+envnix validate
 ```
 
 ### Watch Mode
@@ -67,12 +67,12 @@ envgen validate
 Watch supported `.env*` files and automatically regenerate outputs.
 
 ```bash
-envgen watch
+envnix watch
 ```
 
 ## Config file
 
-You can configure defaults using `envgen.config.json` in your project root:
+You can configure defaults using `envnix.config.json` in your project root:
 
 ```json
 {
@@ -86,7 +86,7 @@ You can configure defaults using `envgen.config.json` in your project root:
 ## FAQ
 
 **Why another env generator?**
-Other tools often strip comments or blank lines, messing up well-documented configurations. `envgen` is built with a custom parser to retain your exact formatting.
+Other tools often strip comments or blank lines, messing up well-documented configurations. `envnix` is built with a custom parser to retain your exact formatting.
 
 ## Contributing
 

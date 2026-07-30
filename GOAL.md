@@ -1,15 +1,15 @@
-# Build `envgen` – Production-Ready Node.js CLI
+# Build `envnix` – Production-Ready Node.js CLI
 
 ## Overview
 
-Build a production-ready open-source npm package named **envgen**.
+Build a production-ready open-source npm package named **envnix**.
 
 The goal is to provide a fast, dependency-light CLI that generates `.env.example` files from existing `.env` files while preserving formatting and comments.
 
 The package should be written in **TypeScript**, compiled to JavaScript, and published to npm so users can execute it with:
 
 ```bash
-npx envgen generate
+npx envnix generate
 ```
 
 The project should follow modern Node.js best practices, include excellent DX, comprehensive tests, CI, linting, formatting, documentation, and be ready for open-source contributions.
@@ -37,12 +37,12 @@ The final package should have minimal runtime dependencies.
 # CLI
 
 ```
-envgen generate
-envgen g
-envgen validate
-envgen watch
-envgen --help
-envgen --version
+envnix generate
+envnix g
+envnix validate
+envnix watch
+envnix --help
+envnix --version
 ```
 
 ---
@@ -114,7 +114,7 @@ Without flags, variables stay in their original order.
 ## 4. Alphabetical sorting
 
 ```
-envgen generate --sort
+envnix generate --sort
 ```
 
 Sort only variable entries.
@@ -133,7 +133,7 @@ Support
 ## 5. No sorting
 
 ```
-envgen generate --no-sort
+envnix generate --no-sort
 ```
 
 Explicitly preserve original ordering.
@@ -143,7 +143,7 @@ Explicitly preserve original ordering.
 ## 6. Force overwrite
 
 ```
-envgen generate --force
+envnix generate --force
 ```
 
 If output exists:
@@ -162,7 +162,7 @@ Exit with non-zero status.
 ## 7. Custom input
 
 ```
-envgen generate --input .env.production
+envnix generate --input .env.production
 ```
 
 Short flag
@@ -176,7 +176,7 @@ Short flag
 ## 8. Custom output
 
 ```
-envgen generate --output env.sample
+envnix generate --output env.sample
 ```
 
 Short flag
@@ -190,7 +190,7 @@ Short flag
 ## 9. Generate all env files
 
 ```
-envgen generate --all
+envnix generate --all
 ```
 
 Automatically detect
@@ -222,7 +222,7 @@ Skip already-generated `.example` files.
 ## 10. Dry Run
 
 ```
-envgen generate --dry-run
+envnix generate --dry-run
 ```
 
 Print generated content to stdout.
@@ -262,7 +262,7 @@ Only output errors.
 ## 13. Validate
 
 ```
-envgen validate
+envnix validate
 ```
 
 Compare
@@ -309,7 +309,7 @@ OLD_VAR
 ## 14. Check mode (CI)
 
 ```
-envgen generate --check
+envnix generate --check
 ```
 
 Do not write.
@@ -327,7 +327,7 @@ Perfect for GitHub Actions.
 ## 15. Watch Mode
 
 ```
-envgen watch
+envnix watch
 ```
 
 Watch every supported `.env*` file.
@@ -343,7 +343,7 @@ Display concise logs.
 Allow
 
 ```
-envgen generate \
+envnix generate \
   -i .env.production \
   -o env.sample
 ```
@@ -355,7 +355,7 @@ envgen generate \
 Support optional
 
 ```
-envgen.config.json
+envnix.config.json
 ```
 
 Example
@@ -452,7 +452,7 @@ Never crash with stack traces during normal CLI usage.
 # Help
 
 ```
-envgen --help
+envnix --help
 ```
 
 Display polished help similar to npm, git, or pnpm.
@@ -462,7 +462,7 @@ Display polished help similar to npm, git, or pnpm.
 # Package Structure
 
 ```
-envgen/
+envnix/
  ├── src/
  │    ├── cli.ts
  │    ├── commands/

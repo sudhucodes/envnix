@@ -1,12 +1,12 @@
 {
-    "name": "envgen",
+    "name": "envnix",
     "version": "0.0.1",
     "description": "Generate .env.example files from existing .env files while preserving formatting and comments.",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "bin": {
-        "envgen": "./dist/cli.js"
+        "envnix": "./dist/cli.js"
     },
     "exports": {
         ".": {

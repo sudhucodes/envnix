@@ -12,7 +12,7 @@ async function bootstrap() {
     const config = await loadConfig(cwd);
 
     program
-        .name('envgen')
+        .name('envnix')
         .description('Generate .env.example files from existing .env files')
         .version('1.0.0'); // Ideally imported from package.json in a real scenario
 

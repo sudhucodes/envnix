@@ -1,5 +1,5 @@
-import { readFile, fileExists } from '../utils/file.js';
 import { resolve } from 'node:path';
+import { fileExists, readFile } from '../utils/file.js';
 
 export interface EnvgenConfig {
     sort?: 'asc' | 'desc' | boolean;
@@ -15,7 +15,7 @@ export interface EnvgenConfig {
 }
 
 export async function loadConfig(cwd: string): Promise<EnvgenConfig> {
-    const configPath = resolve(cwd, 'envgen.config.json');
+    const configPath = resolve(cwd, 'envnix.config.json');
     if (!(await fileExists(configPath))) {
         return {};
     }
@@ -27,6 +27,6 @@ export async function loadConfig(cwd: string): Promise<EnvgenConfig> {
         const parsed = JSON.parse(content);
         return parsed as EnvgenConfig;
     } catch (err: any) {
-        throw new Error(`Failed to parse envgen.config.json: ${err.message}`);
+        throw new Error(`Failed to parse envnix.config.json: ${err.message}`);
     }
 }
