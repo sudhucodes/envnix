@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.3
+
+### Patch Changes
+
+- add .npmrc to publish using changeset
+
 ## 0.0.2
 
 ### Patch Changes
