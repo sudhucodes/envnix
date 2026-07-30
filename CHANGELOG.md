@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.2
+
+### Patch Changes
+
+- removed realease workflow
+
 ## 0.0.1
 
 - Initial release of `envnix`

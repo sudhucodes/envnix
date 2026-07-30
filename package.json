@@ -1,6 +1,6 @@
 {
     "name": "envnix",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Generate .env.example files from existing .env files while preserving formatting and comments.",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
@@ -26,7 +26,7 @@
         "prepare": "husky",
         "typecheck": "tsc --noEmit",
         "changeset": "changeset",
-        "version": "changeset version",
+        "changeset:version": "changeset version",
         "release": "pnpm run build && changeset publish"
     },
     "keywords": [
