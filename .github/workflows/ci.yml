@@ -1,31 +1,48 @@
-name: CI
+name: Continuous Integration
 
 on:
     push:
-        branches: [main]
+        branches:
+            - main
     pull_request:
-        branches: [main]
+        branches:
+            - main
+
+permissions:
+    contents: read
 
 jobs:
     build:
+        name: Node.js ${{ matrix.node-version }}
         runs-on: ubuntu-latest
+
         strategy:
+            fail-fast: false
             matrix:
-                node-version: [20.x, 22.x]
+                node-version:
+                    - 20.x
+                    - 22.x
 
         steps:
-            - uses: actions/checkout@v4
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-            - uses: pnpm/action-setup@v3
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
               with:
                   version: 10
 
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node-version }}
-                  cache: 'pnpm'
+                  cache: pnpm
 
-            - run: pnpm install --frozen-lockfile
-            - run: pnpm run typecheck
-            - run: pnpm run build
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Type check
+              run: pnpm typecheck
+
+            - name: Build application
+              run: pnpm build
