@@ -27,7 +27,7 @@ A fast, production-ready Node.js CLI to generate `.env.example` files from exist
 - **Dry-run mode**: Check outputs without writing to the disk.
 - **CI / Check mode**: Ensure your examples are always in sync with your .env files on GitHub Actions.
 - **Watch mode**: Regenerates `.env.example` on the fly when you modify `.env` files.
-- **Zero runtime dependencies (mostly)**: Uses only `commander`, `chokidar`, and `picocolors`.
+- **Zero runtime dependencies (mostly)**: Uses only `commander`, `chokidar` and `picocolors`.
 - **Configurable**: Configurable via `envnix.config.json`.
 
 ## Installation

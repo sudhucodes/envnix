@@ -1,0 +1,14 @@
+---
+title: Watch Mode
+description: Automatically regenerate your .env.example files on the fly.
+---
+
+## Watch Mode
+
+During development, you may frequently add or modify environment variables. ENVNIX provides a watch mode to monitor your environment files and automatically regenerate the output whenever changes occur.
+
+```bash
+envnix watch
+```
+
+This command will watch supported `.env*` files (based on your configuration or defaults) and keep your `.env.example` files perfectly synced without any manual intervention.

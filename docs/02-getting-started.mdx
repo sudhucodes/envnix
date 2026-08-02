@@ -1,0 +1,49 @@
+---
+title: Getting Started
+description: Learn how to install and start using ENVNIX in your projects.
+icon: Rocket
+---
+
+## Installation
+
+You can use ENVNIX instantly with `npx` without installing it or you can add it as a development dependency to your project.
+
+### Using NPX (No installation)
+
+Run ENVNIX directly using `npx`:
+
+```bash
+npx envnix generate
+```
+
+### Local Installation
+
+Install it locally as a dev dependency using your preferred package manager:
+
+**npm:**
+
+```bash
+npm install -D envnix
+```
+
+**pnpm:**
+
+```bash
+pnpm add -D envnix
+```
+
+**yarn:**
+
+```bash
+yarn add -D envnix
+```
+
+Once installed, you can use it via your package manager's runner (e.g., `npx envnix generate`, `pnpm envnix generate`) or add it to your `package.json` scripts:
+
+```json
+{
+    "scripts": {
+        "env:generate": "envnix generate"
+    }
+}
+```

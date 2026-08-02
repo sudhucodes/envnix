@@ -1,0 +1,26 @@
+---
+title: Introduction
+description: A fast, production-ready Node.js CLI to generate .env.example files from existing .env files.
+icon: Home
+---
+
+## What is ENVNIX?
+
+ENVNIX is a fast, production-ready Node.js CLI tool designed to simplify environment variable management. It generates `.env.example` files directly from your existing `.env` files while preserving the exact formatting, including blank lines and comments.
+
+### Key Features
+
+- **Preserves formatting & comments**: Keeps your blank lines and full-line comments exactly where they belong.
+- **Inline comments support**: Automatically detects and preserves `#` comments at the end of variable lines.
+- **`export` syntax support**: Seamlessly handles `.env` files that use `export KEY=VALUE` syntax.
+- **Duplicate key detection**: Warns you if you have accidentally defined the same environment variable multiple times.
+- **Alphabetical sorting**: Optionally sorts variables (`asc` or `desc`) while keeping comments logically attached to their respective variables.
+- **Dry-run mode**: Check outputs without writing to the disk.
+- **CI / Check mode**: Ensure your examples are always in sync with your `.env` files on GitHub Actions.
+- **Watch mode**: Regenerates `.env.example` on the fly when you modify `.env` files.
+- **Zero runtime dependencies (mostly)**: Uses only `commander`, `chokidar` and `picocolors` for maximum speed.
+- **Configurable**: Fully customizable via `envnix.config.json`.
+
+### Why another env generator?
+
+Other tools often strip comments, inline comments or blank lines, messing up well-documented configurations. `envnix` is built with a custom parser to retain your exact formatting and even understands complex quoting and inline comments.

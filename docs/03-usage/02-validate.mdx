@@ -1,0 +1,24 @@
+---
+title: Validate
+description: Validate your environment variables against the example file.
+---
+
+## Validation
+
+The `validate` command is used to verify the integrity and completeness of your environment variables. It checks if your `.env.example` is missing any keys from your actual `.env` file, if there are any extra keys and it also detects if there are **duplicate variables** defined in your files.
+
+```bash
+envnix validate
+```
+
+### What does it detect?
+
+The validation process will flag three types of issues:
+
+1. **Missing Keys**: Keys present in `.env` but not in `.env.example`.
+2. **Extra Keys**: Keys present in `.env.example` but not in `.env`.
+3. **Duplicate Variables**: Variables defined multiple times in the same file.
+
+### Why validate?
+
+Validation is crucial for ensuring that all necessary environment variables are documented and distributed across your team. Running this command as part of your Git hooks or CI pipeline guarantees that your `.env.example` always reflects the requirements of your application.

@@ -1,0 +1,33 @@
+---
+title: Configuration
+description: Configure ENVNIX via envnix.config.json
+icon: Settings
+---
+
+## Config file
+
+While ENVNIX works perfectly out of the box with zero configuration, you can customize its default behavior by creating an `envnix.config.json` file in your project's root directory.
+
+### Example Configuration
+
+```json
+{
+    "sort": true,
+    "force": false,
+    "watch": false,
+    "inputs": [".env", ".env.production"]
+}
+```
+
+### Options Explained
+
+- **`sort`** (boolean | `"asc"` | `"desc"`): Whether to sort the variables alphabetically and in what order.
+- **`force`** (boolean): Set to true to force overwrite the output files by default without prompting.
+- **`watch`** (boolean): Set to true to always start in watch mode when running default commands.
+- **`inputs`** (array of strings): Specific `.env` file paths to process automatically when no `--input` flag is given.
+- **`output`** (string): A custom output file path to be used (useful if you only have one input file).
+- **`all`** (boolean): Set to true to always generate for all matched `.env*` files by default.
+- **`dryRun`** (boolean): Set to true to print outputs to stdout without writing them to disk.
+- **`verbose`** (boolean): Set to true for verbose logging (helpful for debugging).
+- **`quiet`** (boolean): Set to true to suppress all non-error output messages.
+- **`check`** (boolean): Set to true to always run in CI/Check mode, asserting that outputs are in sync.
