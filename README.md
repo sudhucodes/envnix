@@ -18,12 +18,7 @@
 
 # ENVNIX
 
-> A fast, production-ready Node.js CLI to generate `.env.example` files from existing `.env` files while preserving formatting, ordering, and comments.
-
-![npm](https://img.shields.io/npm/v/envnix)
-![license](https://img.shields.io/npm/l/envnix)
-![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)
-![GitHub Actions](https://github.com/sudhucodes/envnix/actions/workflows/ci.yml/badge.svg)
+A fast, production-ready Node.js CLI to generate `.env.example` files from existing `.env` files.
 
 ## Features
 

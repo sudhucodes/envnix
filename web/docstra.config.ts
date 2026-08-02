@@ -2,12 +2,12 @@ import { defineDocstraConfig } from 'docstra/mdx';
 
 export default defineDocstraConfig({
     collections: {
-        docs: 'content/docs',
+        docs: '../docs',
     },
     editOnGithub: {
-        repo: 'test',
+        repo: 'envnix',
         owner: 'sudhucodes',
-        path: 'content/docs',
+        path: 'docs',
         branch: 'main',
     },
     feedback: {

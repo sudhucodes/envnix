@@ -1,7 +1,7 @@
 {
     "name": "envnix",
     "version": "0.0.3",
-    "description": "Generate .env.example files from existing .env files while preserving formatting and comments.",
+    "description": "A fast, production-ready Node.js CLI to generate .env.example files from existing .env files.",
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",

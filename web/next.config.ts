@@ -1,9 +1,11 @@
-// next.config.ts
-import type { NextConfig } from 'next';
 import { withDocstra } from 'docstra/mdx';
+import type { NextConfig } from 'next';
+import path from 'node:path';
 
 const nextConfig: NextConfig = {
-    // Write your next.config.js
+    turbopack: {
+        root: path.join(__dirname, '..'),
+    },
 };
 
 export default withDocstra(nextConfig);
