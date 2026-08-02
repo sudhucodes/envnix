@@ -19,7 +19,7 @@ export default defineDocstraConfig({
             link: '/',
             src: '/logo.svg',
             alt: 'Logo',
-            className: 'h-8 w-auto',
+            className: 'h-7.5 w-auto',
         },
         links: [
             { name: 'Guides', href: '/docs/guides' },
