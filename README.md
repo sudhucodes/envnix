@@ -1,4 +1,22 @@
-# envnix
+<div align="center">
+  <picture>
+    <img src="./banner.png" alt="ENVNIX Logo"/>
+  </picture>
+
+[![npm](https://img.shields.io/npm/dm/envnix?style=flat&colorA=000000&colorB=000000)](https://npm.chart.dev/envnix?primary=neutral&gray=neutral&theme=dark)
+[![npm version](https://img.shields.io/npm/v/envnix.svg?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/envnix)
+[![GitHub stars](https://img.shields.io/github/stars/sudhucodes/envnix?style=flat&colorA=000000&colorB=000000)](https://github.com/sudhucodes/envnix/stargazers)
+
+<p>
+  <a href="https://npmjs.com/package/envnix">NPM</a>
+  ·
+  <a href="https://envnix.sudhucodes.com">WEBSITE</a>
+  ·
+  <a href="https://github.com/sudhucodes/envnix/issues">ISSUES</a>
+</p>
+</div>
+
+# ENVNIX
 
 > A fast, production-ready Node.js CLI to generate `.env.example` files from existing `.env` files while preserving formatting, ordering, and comments.
 
