@@ -1,16 +1,14 @@
-import { getVersion } from '@/lib/get-version';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default async function Page() {
-    const version = await getVersion();
-
+export default function Page() {
+    const PKG_VERSION = '0.0.4';
     return (
         <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6 font-sans text-center">
             <div className="relative z-10 mx-auto max-w-4xl flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-1000 ease-out">
                 <div className="mb-6 inline-flex items-center rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-sm text-neutral-600">
-                    <span className="size-2 rounded-full bg-green-500 mr-2"></span>v{version} is now
-                    live
+                    <span className="size-2 rounded-full bg-green-500 mr-2"></span>v{PKG_VERSION} is
+                    now live
                 </div>
 
                 <Image
