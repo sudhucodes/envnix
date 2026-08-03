@@ -1,5 +1,5 @@
 import { promises as fs } from 'node:fs';
-import { resolve, parse } from 'node:path';
+import { parse, resolve } from 'node:path';
 import { logger } from './logger.js';
 
 export async function fileExists(filePath: string): Promise<boolean> {

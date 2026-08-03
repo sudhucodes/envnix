@@ -13,7 +13,9 @@ async function bootstrap() {
 
     program
         .name('envnix')
-        .description('Generate .env.example files from existing .env files')
+        .description(
+            'A fast, production-ready Node.js CLI to generate .env.example files from existing .env files.',
+        )
         .version('1.0.0'); // Ideally imported from package.json in a real scenario
 
     program
