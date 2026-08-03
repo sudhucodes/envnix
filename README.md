@@ -61,6 +61,8 @@ envnix generate
 - `-a, --all`: Generate for all matched `.env*` files
 - `--sort [asc|desc]`: Sort variables alphabetically
 - `--no-sort`: Disable sorting
+- `--no-comments`: Remove all comments from output
+- `--strip-comments`: Alternative flag to strip comments from output
 - `-f, --force`: Force overwrite if output exists
 - `--dry-run`: Print to stdout instead of writing file
 - `--verbose`: Print verbose logs
@@ -90,6 +92,7 @@ You can configure defaults using `envnix.config.json` in your project root:
 ```json
 {
     "sort": true,
+    "comments": true,
     "force": false,
     "watch": false,
     "inputs": [".env", ".env.production"]

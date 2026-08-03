@@ -13,6 +13,7 @@ While ENVNIX works perfectly out of the box with zero configuration, you can cus
 ```json
 {
     "sort": true,
+    "comments": true,
     "force": false,
     "watch": false,
     "inputs": [".env", ".env.production"]
@@ -22,6 +23,7 @@ While ENVNIX works perfectly out of the box with zero configuration, you can cus
 ### Options Explained
 
 - **`sort`** (boolean | `"asc"` | `"desc"`): Whether to sort the variables alphabetically and in what order.
+- **`comments`** (boolean): Set to `false` to strip all comments from output (or use `"stripComments": true` / `"noComments": true`).
 - **`force`** (boolean): Set to true to force overwrite the output files by default without prompting.
 - **`watch`** (boolean): Set to true to always start in watch mode when running default commands.
 - **`inputs`** (array of strings): Specific `.env` file paths to process automatically when no `--input` flag is given.
