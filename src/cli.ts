@@ -10,7 +10,7 @@ async function bootstrap() {
     const program = new Command();
     const cwd = process.cwd();
     const config = await loadConfig(cwd);
-    const PKG_VERSION = '0.0.4';
+    const PKG_VERSION = '0.0.5';
 
     program
         .name('envnix')
@@ -25,6 +25,9 @@ async function bootstrap() {
         .description('Generate .env.example from input')
         .option('--sort [order]', 'Sort variables (asc or desc)')
         .option('--no-sort', 'Do not sort variables')
+        .option('--comments', 'Include comments in output')
+        .option('--no-comments', 'Remove comments from generated output')
+        .option('--strip-comments', 'Strip comments from generated output')
         .option('-f, --force', 'Force overwrite if output exists')
         .option('-i, --input <file>', 'Custom input file')
         .option('-o, --output <file>', 'Custom output file')
@@ -42,10 +45,23 @@ async function bootstrap() {
                       ? false
                       : config.sort;
 
+            const commentsOpt = options.stripComments
+                ? false
+                : options.comments !== undefined
+                  ? options.comments
+                  : config.comments !== undefined
+                    ? config.comments
+                    : config.stripComments !== undefined
+                      ? !config.stripComments
+                      : config.noComments !== undefined
+                        ? !config.noComments
+                        : true;
+
             const mergedOptions = {
                 ...config,
                 ...options,
                 sort: sortOpt,
+                comments: commentsOpt,
                 force: options.force ?? config.force,
                 all: options.all ?? config.all,
                 dryRun: options.dryRun ?? config.dryRun,

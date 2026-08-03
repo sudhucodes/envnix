@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.5
+
+### Patch Changes
+
+- feat: add new remove comments
+
 ## 0.0.4
 
 ### Patch Changes

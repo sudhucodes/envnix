@@ -15,38 +15,50 @@ envnix generate
 
 The `generate` command supports various flags to customize its behavior:
 
-| Option | Shorthand | Description |
-| :--- | :--- | :--- |
-| `--input <file>` | `-i` | Custom input file instead of the default `.env` |
-| `--output <file>` | `-o` | Custom output file instead of the default `.env.example` |
-| `--all` | `-a` | Generate for all matched `.env*` files in the directory |
-| `--sort [asc\|desc]` | | Sort variables alphabetically (keeps comments attached) |
-| `--no-sort` | | Disable sorting entirely |
-| `--force` | `-f` | Force overwrite if the output file already exists |
-| `--dry-run` | | Print the result to stdout instead of writing to a file |
-| `--verbose` | | Print verbose logs for debugging |
-| `--quiet` | `-q` | Only output errors, suppressing standard messages |
-| `--check` | | Check if the output matches an existing file (useful for CI environments) |
+| Option               | Shorthand | Description                                                               |
+| :------------------- | :-------- | :------------------------------------------------------------------------ |
+| `--input <file>`     | `-i`      | Custom input file instead of the default `.env`                           |
+| `--output <file>`    | `-o`      | Custom output file instead of the default `.env.example`                  |
+| `--all`              | `-a`      | Generate for all matched `.env*` files in the directory                   |
+| `--sort [asc\|desc]` |           | Sort variables alphabetically (keeps comments attached)                   |
+| `--no-sort`          |           | Disable sorting entirely                                                  |
+| `--no-comments`      |           | Strip all comments (full line and inline) from output                     |
+| `--strip-comments`   |           | Alternative flag to strip comments from output                            |
+| `--force`            | `-f`      | Force overwrite if the output file already exists                         |
+| `--dry-run`          |           | Print the result to stdout instead of writing to a file                   |
+| `--verbose`          |           | Print verbose logs for debugging                                          |
+| `--quiet`            | `-q`      | Only output errors, suppressing standard messages                         |
+| `--check`            |           | Check if the output matches an existing file (useful for CI environments) |
 
 ### Example Usages
 
 **Sort variables alphabetically in ascending order:**
+
 ```bash
 envnix generate --sort asc
 ```
 
+**Strip comments from generated example file:**
+
+```bash
+envnix generate --no-comments
+```
+
 **Multiple Input Files:**
 You can specify multiple input files. ENVNIX will automatically resolve the output names (e.g. `.env.local` becomes `.env.local.example`).
+
 ```bash
 envnix generate --input .env --input .env.local
 ```
 
 **Generate examples for all environment files (`.env`, `.env.local`, `.env.production`):**
+
 ```bash
 envnix generate --all
 ```
 
 **CI Validation (check if `.env.example` is up to date):**
+
 ```bash
 envnix generate --check
 ```

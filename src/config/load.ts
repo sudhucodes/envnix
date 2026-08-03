@@ -3,6 +3,9 @@ import { fileExists, readFile } from '../utils/file.js';
 
 export interface EnvgenConfig {
     sort?: 'asc' | 'desc' | boolean;
+    comments?: boolean;
+    stripComments?: boolean;
+    noComments?: boolean;
     force?: boolean;
     watch?: boolean;
     inputs?: string[];

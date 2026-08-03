@@ -63,8 +63,21 @@ export async function generateCommand(cwd: string, options: GenerateOptions): Pr
 
         try {
             const parsed = parseEnv(content);
+            const commentsOpt =
+                options.comments !== undefined
+                    ? options.comments
+                    : options.stripComments !== undefined
+                      ? !options.stripComments
+                      : options.noComments !== undefined
+                        ? !options.noComments
+                        : true;
+
             logger.debug(`Found ${parsed.variablesCount} variables`);
-            logger.debug(`Preserved ${parsed.commentsCount} comments`);
+            if (commentsOpt) {
+                logger.debug(`Preserved ${parsed.commentsCount} comments`);
+            } else {
+                logger.debug(`Stripped ${parsed.commentsCount} comments`);
+            }
 
             if (parsed.duplicateKeys.length > 0) {
                 logger.warn(`Duplicate variable\n\n${parsed.duplicateKeys.join('\n')}`);
@@ -72,7 +85,7 @@ export async function generateCommand(cwd: string, options: GenerateOptions): Pr
 
             const sortOpt =
                 typeof options.sort === 'boolean' ? (options.sort ? 'asc' : false) : options.sort;
-            const formatted = formatEnv(parsed, { sort: sortOpt });
+            const formatted = formatEnv(parsed, { sort: sortOpt, comments: commentsOpt });
 
             if (options.dryRun) {
                 logger.log(`\n--- Dry Run: ${outputPath} ---`);

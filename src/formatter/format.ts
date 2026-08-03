@@ -2,10 +2,27 @@ import { EnvToken, ParseResult } from '../parser/parse.js';
 
 export interface FormatOptions {
     sort?: 'asc' | 'desc' | false;
+    comments?: boolean;
 }
 
 export function formatEnv(parsed: ParseResult, options: FormatOptions = {}): string {
-    const { tokens } = parsed;
+    let { tokens } = parsed;
+    const includeComments = options.comments !== false;
+
+    if (!includeComments) {
+        tokens = tokens
+            .filter((t) => t.type !== 'Comment')
+            .map((t) => {
+                if (t.type === 'Variable') {
+                    return {
+                        ...t,
+                        inlineComment: undefined,
+                    };
+                }
+                return t;
+            });
+        tokens = removeSuccessiveBlankLines(tokens);
+    }
 
     if (!options.sort) {
         return tokens.map(formatToken).join('\n');
