@@ -10,13 +10,14 @@ async function bootstrap() {
     const program = new Command();
     const cwd = process.cwd();
     const config = await loadConfig(cwd);
+    const PKG_VERSION = '0.0.4';
 
     program
         .name('envnix')
         .description(
             'A fast, production-ready Node.js CLI to generate .env.example files from existing .env files.',
         )
-        .version('1.0.0'); // Ideally imported from package.json in a real scenario
+        .version(PKG_VERSION);
 
     program
         .command('generate')

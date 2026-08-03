@@ -26,7 +26,7 @@
         "prepare": "husky",
         "typecheck": "tsc --noEmit",
         "changeset": "changeset",
-        "changeset:version": "changeset version",
+        "changeset:version": "changeset version && node scripts/update-version.js",
         "release": "pnpm run build && changeset publish"
     },
     "keywords": [
