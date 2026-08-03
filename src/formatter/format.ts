@@ -1,4 +1,4 @@
-import { EnvToken, ParseResult, VariableToken } from '../parser/parse.js';
+import { EnvToken, ParseResult } from '../parser/parse.js';
 
 export interface FormatOptions {
     sort?: 'asc' | 'desc' | false;

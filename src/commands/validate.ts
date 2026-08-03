@@ -1,8 +1,8 @@
 import { resolve } from 'node:path';
-import { logger } from '../utils/logger.js';
-import { fileExists, readFile } from '../utils/file.js';
 import { parseEnv } from '../parser/parse.js';
-import { validateEnvs, printValidationResult } from '../validator/validate.js';
+import { fileExists, readFile } from '../utils/file.js';
+import { logger } from '../utils/logger.js';
+import { printValidationResult, validateEnvs } from '../validator/validate.js';
 
 export async function validateCommand(cwd: string) {
     const envPath = resolve(cwd, '.env');

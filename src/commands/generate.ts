@@ -1,17 +1,16 @@
 import { resolve } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { EnvgenConfig } from '../config/load.js';
-import { logger } from '../utils/logger.js';
+import { formatEnv } from '../formatter/format.js';
+import { parseEnv } from '../parser/parse.js';
 import {
+    determineOutputFilePath,
     fileExists,
+    findEnvFiles,
     readFile,
     writeFile,
-    findEnvFiles,
-    determineOutputFilePath,
 } from '../utils/file.js';
-import { parseEnv } from '../parser/parse.js';
-import { formatEnv } from '../formatter/format.js';
-import { validateEnvs } from '../validator/validate.js';
+import { logger } from '../utils/logger.js';
 
 export interface GenerateOptions extends EnvgenConfig {
     input?: string | string[];
