@@ -8,7 +8,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/sudhucodes/envnix?style=flat&colorA=000000&colorB=000000)](https://github.com/sudhucodes/envnix/stargazers)
 
 <p>
-  <a href="https://npmjs.com/package/envnix">NPM</a>
+  <a href="https://npmjs.com/package/envnix">NPMJS</a>
   ·
   <a href="https://envnix.sudhucodes.com">WEBSITE</a>
   ·
