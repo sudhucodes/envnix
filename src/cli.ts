@@ -10,7 +10,7 @@ async function bootstrap() {
     const program = new Command();
     const cwd = process.cwd();
     const config = await loadConfig(cwd);
-    const PKG_VERSION = '0.0.4';
+    const PKG_VERSION = '0.0.5';
 
     program
         .name('envnix')
