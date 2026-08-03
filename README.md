@@ -1,6 +1,6 @@
 <div align="center">
   <picture>
-    <img src="./banner.png" alt="ENVNIX Logo"/>
+    <img src="https://raw.githubusercontent.com/sudhucodes/envnix/main/banner.png" alt="ENVNIX Logo"/>
   </picture>
 
 [![npm](https://img.shields.io/npm/dm/envnix?style=flat&colorA=000000&colorB=000000)](https://npm.chart.dev/envnix?primary=neutral&gray=neutral&theme=dark)
