@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.6
+
+### Patch Changes
+
+- add clean command to strip inline comments and normalize blank lines in .env files
+
 ## 0.0.5
 
 ### Patch Changes

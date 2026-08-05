@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Page() {
-    const PKG_VERSION = '0.0.5';
+    const PKG_VERSION = '0.0.6';
     return (
         <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-6 font-sans text-center">
             <div className="relative z-10 mx-auto max-w-4xl flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-1000 ease-out">

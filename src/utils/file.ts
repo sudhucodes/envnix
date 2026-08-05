@@ -46,6 +46,7 @@ export async function findEnvFiles(cwd: string): Promise<string[]> {
         (file) =>
             file.startsWith('.env') &&
             !file.endsWith('.example') &&
+            !file.endsWith('.clean') &&
             !file.endsWith('.backup') &&
             !file.endsWith('.old') &&
             !file.endsWith('.sample'),
@@ -58,4 +59,12 @@ export function determineOutputFilePath(inputPath: string): string {
         return inputPath;
     }
     return resolve(parsed.dir, `${parsed.base}.example`);
+}
+
+export function determineCleanOutputFilePath(inputPath: string): string {
+    const parsed = parse(inputPath);
+    if (parsed.name.endsWith('.clean')) {
+        return inputPath;
+    }
+    return resolve(parsed.dir, `${parsed.base}.clean`);
 }
