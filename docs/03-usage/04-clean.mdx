@@ -1,0 +1,74 @@
+---
+title: Clean
+description: Remove comments from .env files while preserving variable values and structure.
+---
+
+## Cleaning Comments (`clean`)
+
+The `clean` command strips comment lines (`#`) and inline comments from your `.env` files while preserving all variable keys, values, and structural spacing.
+
+```bash
+envnix clean
+```
+
+By default, running `envnix clean` reads your `.env` file and outputs the cleaned result to `.env.clean`.
+
+### Force Mode (`--force` / `-f`)
+
+When passed with the `--force` (or `-f`) flag, `envnix clean` will overwrite the original `.env` file directly **in-place**:
+
+```bash
+envnix clean --force
+```
+
+### Options
+
+The `clean` command supports options similar to `generate`:
+
+| Option            | Shorthand | Description                                                           |
+| :---------------- | :-------- | :-------------------------------------------------------------------- |
+| `--input <file>`  | `-i`      | Custom input file instead of the default `.env`                       |
+| `--output <file>` | `-o`      | Custom output file path                                               |
+| `--force`         | `-f`      | Clean directly in-place (overwrites input file instead of `.clean`)   |
+| `--all`           | `-a`      | Clean all matched `.env*` files in the directory                      |
+| `--dry-run`       |           | Print the cleaned output to stdout without modifying disk             |
+| `--verbose`       |           | Print verbose logs for debugging                                      |
+| `--quiet`         | `-q`      | Only output errors                                                    |
+
+### Example Usage
+
+Given an input `.env` file:
+
+```env
+NODE="dev"
+
+# mode for example
+NODE="dev"
+NODE="dev"
+
+#mode for example 
+NODE="dev"
+
+NODE="dev"
+```
+
+Running `envnix clean` will produce:
+
+```env
+NODE="dev"
+
+NODE="dev"
+NODE="dev"
+
+NODE="dev"
+
+NODE="dev"
+```
+
+### Clean All Environment Files
+
+To clean all matched `.env*` files in your project directory at once:
+
+```bash
+envnix clean --all
+```

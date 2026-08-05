@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
+import { cleanCommand } from './commands/clean.js';
 import { generateCommand } from './commands/generate.js';
 import { validateCommand } from './commands/validate.js';
 import { watchCommand } from './commands/watch.js';
@@ -10,7 +11,7 @@ async function bootstrap() {
     const program = new Command();
     const cwd = process.cwd();
     const config = await loadConfig(cwd);
-    const PKG_VERSION = '0.0.5';
+    const PKG_VERSION = '0.0.6';
 
     program
         .name('envnix')
@@ -73,6 +74,33 @@ async function bootstrap() {
             };
 
             await generateCommand(cwd, mergedOptions);
+        });
+
+    program
+        .command('clean')
+        .alias('c')
+        .description('Remove comments from .env files')
+        .option('-f, --force', 'Clean directly in-place instead of creating .clean file')
+        .option('-i, --input <file>', 'Custom input file')
+        .option('-o, --output <file>', 'Custom output file')
+        .option('-a, --all', 'Clean all matched .env* files')
+        .option('--dry-run', 'Print to stdout instead of writing file')
+        .option('--verbose', 'Print verbose logs')
+        .option('-q, --quiet', 'Only output errors')
+        .action(async (options) => {
+            const mergedOptions = {
+                ...config,
+                ...options,
+                force: options.force ?? config.force,
+                all: options.all ?? config.all,
+                dryRun: options.dryRun ?? config.dryRun,
+                verbose: options.verbose ?? config.verbose,
+                quiet: options.quiet ?? config.quiet,
+                input: options.input ?? config.inputs,
+                output: options.output ?? config.output,
+            };
+
+            await cleanCommand(cwd, mergedOptions);
         });
 
     program

@@ -23,6 +23,7 @@ A fast, production-ready Node.js CLI to generate `.env.example` files from exist
 ## Features
 
 - **Preserves formatting & comments**: Keeps your blank lines and comments exactly where they belong.
+- **Comment cleaning**: Easily strip comments from `.env` files using `envnix clean` (in-place with `--force` or to `.env.clean`).
 - **Alphabetical sorting**: Optionally sorts variables while keeping comments attached to their variables.
 - **Dry-run mode**: Check outputs without writing to the disk.
 - **CI / Check mode**: Ensure your examples are always in sync with your .env files on GitHub Actions.
@@ -75,6 +76,18 @@ Check if `.env.example` is missing keys from `.env` or has extra/duplicate keys.
 
 ```bash
 envnix validate
+```
+
+### Clean Comments
+
+Remove comment lines and inline comments from `.env` files while preserving all variable values and structure spacing.
+
+```bash
+# Create .env.clean without modifying original .env
+envnix clean
+
+# Clean directly in-place (overwrites .env)
+envnix clean --force
 ```
 
 ### Watch Mode

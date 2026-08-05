@@ -106,7 +106,7 @@ export function parseEnv(content: string): ParseResult {
 /**
  * Finds the index of an inline comment `#` that is not inside quotes.
  */
-function findInlineCommentIndex(val: string): number {
+export function findInlineCommentIndex(val: string): number {
     let inSingleQuotes = false;
     let inDoubleQuotes = false;
 
