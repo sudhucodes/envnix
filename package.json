@@ -27,7 +27,9 @@
         "typecheck": "tsc --noEmit",
         "changeset": "changeset",
         "changeset:version": "changeset version && node scripts/update-version.js",
-        "release": "pnpm run build && changeset publish"
+        "release": "pnpm run build && changeset publish",
+        "clean": "node scripts/clean.js",
+        "clean:all": "node scripts/clean.js --all"
     },
     "keywords": [
         "env",
