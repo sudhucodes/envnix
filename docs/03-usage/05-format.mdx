@@ -1,0 +1,81 @@
+---
+title: Format
+description: Format existing .env files, quoting unquoted values and standardizing structure.
+---
+
+## Formatting Environment Files (`format` / `fmt`)
+
+The `format` command formats your existing `.env` files. It wraps values in quotes (e.g. converting `NEXT_PUBLIC_BASE_URL=http://localhost:3000` to `NEXT_PUBLIC_BASE_URL="http://localhost:3000"`), normalizes spacing, and preserves comments, inline comments, and blank lines.
+
+```bash
+envnix format
+```
+
+By default, running `envnix format` reads your `.env` file and outputs the formatted result to `.env.formatted`.
+
+### In-Place Formatting (`--write` / `-w` or `--force` / `-f`)
+
+To format the original `.env` file directly **in-place**:
+
+```bash
+envnix format --write
+# or
+envnix format --force
+```
+
+### Options
+
+| Option                | Shorthand | Description                                              |
+| :-------------------- | :-------- | :------------------------------------------------------- |
+| `--write`             | `-w`      | Format directly in-place (overwrites the input file)     |
+| `--force`             | `-f`      | Alias for `--write`                                      |
+| `--input <file>`      | `-i`      | Custom input file instead of the default `.env`          |
+| `--output <file>`     | `-o`      | Custom output file path                                  |
+| `--all`               | `-a`      | Format all matched `.env*` files in the directory        |
+| `--quotes <mode>`     |           | Quotes mode: `always` (default), `as-needed`, or `never` |
+| `--quote-type <type>` |           | Quote type: `double` (default) or `single`               |
+| `--sort [asc\|desc]`  |           | Sort variables alphabetically (keeps comments attached)  |
+| `--no-sort`           |           | Disable sorting                                          |
+| `--no-comments`       |           | Strip comments from output                               |
+| `--dry-run`           |           | Print formatted output to stdout without modifying disk  |
+| `--check`             |           | Check if input files are formatted (for CI environments) |
+| `--verbose`           |           | Print verbose logs                                       |
+| `--quiet`             | `-q`      | Only output errors                                       |
+
+### Example Usage
+
+Given an input `.env` file:
+
+```env
+# API & server configuration
+PORT=3000
+NEXT_PUBLIC_BASE_URL=http://localhost:3000 # Frontend base URL
+API_SECRET='super-secret-token'
+EMPTY=
+```
+
+Running `envnix format --write` produces:
+
+```env
+# API & server configuration
+PORT="3000"
+NEXT_PUBLIC_BASE_URL="http://localhost:3000" # Frontend base URL
+API_SECRET="super-secret-token"
+EMPTY=""
+```
+
+### Format All Environment Files
+
+To format all `.env*` files in your project directory in-place:
+
+```bash
+envnix format --all --write
+```
+
+### CI Formatting Check
+
+Check if all environment files are properly formatted in your CI workflows:
+
+```bash
+envnix format --check
+```

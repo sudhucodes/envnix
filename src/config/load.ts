@@ -7,6 +7,7 @@ export interface EnvgenConfig {
     stripComments?: boolean;
     noComments?: boolean;
     force?: boolean;
+    write?: boolean;
     watch?: boolean;
     inputs?: string[];
     output?: string;
@@ -15,6 +16,8 @@ export interface EnvgenConfig {
     verbose?: boolean;
     quiet?: boolean;
     check?: boolean;
+    quotes?: 'always' | 'as-needed' | 'never';
+    quoteType?: 'double' | 'single';
 }
 
 export async function loadConfig(cwd: string): Promise<EnvgenConfig> {

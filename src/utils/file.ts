@@ -47,6 +47,7 @@ export async function findEnvFiles(cwd: string): Promise<string[]> {
             file.startsWith('.env') &&
             !file.endsWith('.example') &&
             !file.endsWith('.clean') &&
+            !file.endsWith('.formatted') &&
             !file.endsWith('.backup') &&
             !file.endsWith('.old') &&
             !file.endsWith('.sample'),
@@ -67,4 +68,12 @@ export function determineCleanOutputFilePath(inputPath: string): string {
         return inputPath;
     }
     return resolve(parsed.dir, `${parsed.base}.clean`);
+}
+
+export function determineFormatOutputFilePath(inputPath: string): string {
+    const parsed = parse(inputPath);
+    if (parsed.name.endsWith('.formatted')) {
+        return inputPath;
+    }
+    return resolve(parsed.dir, `${parsed.base}.formatted`);
 }

@@ -25,6 +25,9 @@ While ENVNIX works perfectly out of the box with zero configuration, you can cus
 - **`sort`** (boolean | `"asc"` | `"desc"`): Whether to sort the variables alphabetically and in what order.
 - **`comments`** (boolean): Set to `false` to strip all comments from output (or use `"stripComments": true` / `"noComments": true`).
 - **`force`** (boolean): Set to true to force overwrite the output files by default without prompting.
+- **`write`** (boolean): Set to true to format files in-place by default when running `envnix format`.
+- **`quotes`** (`"always"` | `"as-needed"` | `"never"`): Quoting strategy for formatting variables (default: `"always"`).
+- **`quoteType`** (`"double"` | `"single"`): Quote character used when formatting variables (default: `"double"`).
 - **`watch`** (boolean): Set to true to always start in watch mode when running default commands.
 - **`inputs`** (array of strings): Specific `.env` file paths to process automatically when no `--input` flag is given.
 - **`output`** (string): A custom output file path to be used (useful if you only have one input file).

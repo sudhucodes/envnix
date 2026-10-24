@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0
+
+### Minor Changes
+
+- add new formatting feature
+
 ## 0.0.6
 
 ### Patch Changes
