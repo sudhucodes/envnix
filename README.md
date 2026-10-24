@@ -23,6 +23,7 @@ A fast, production-ready Node.js CLI to generate `.env.example` files from exist
 ## Features
 
 - **Preserves formatting & comments**: Keeps your blank lines and comments exactly where they belong.
+- **Format .env files**: Format and quote variable values in existing `.env` files (e.g. `NEXT_PUBLIC_BASE_URL=http://localhost:3000` -> `NEXT_PUBLIC_BASE_URL="http://localhost:3000"`).
 - **Comment cleaning**: Easily strip comments from `.env` files using `envnix clean` (in-place with `--force` or to `.env.clean`).
 - **Alphabetical sorting**: Optionally sorts variables while keeping comments attached to their variables.
 - **Dry-run mode**: Check outputs without writing to the disk.
@@ -89,6 +90,33 @@ envnix clean
 # Clean directly in-place (overwrites .env)
 envnix clean --force
 ```
+
+### Format `.env` Files
+
+Format existing `.env` files by wrapping unquoted values in double quotes, standardizing spacing, and optionally sorting while preserving comments and structure.
+
+```bash
+# Format to .env.formatted without modifying original .env
+envnix format
+
+# Format directly in-place (overwrites .env)
+envnix format --write
+# or
+envnix format --force
+
+# Check if .env files are properly formatted (useful for CI)
+envnix format --check
+```
+
+Options:
+
+- `-w, --write` / `-f, --force`: Format directly in-place
+- `--quotes <always|as-needed|never>`: Quote mode (default: `always`)
+- `--quote-type <double|single>`: Quote character (default: `double`)
+- `--sort [asc|desc]`: Sort variables alphabetically
+- `--no-comments`: Strip comments during formatting
+- `--check`: Validate formatting for CI pipelines
+- `--dry-run`: Preview formatted output in stdout
 
 ### Watch Mode
 

@@ -11,6 +11,7 @@ ENVNIX is a fast, production-ready Node.js CLI tool designed to simplify environ
 ### Key Features
 
 - **Preserves formatting & comments**: Keeps your blank lines and full-line comments exactly where they belong.
+- **Environment formatting (`format` / `fmt`)**: Quotes unquoted values (e.g. `NEXT_PUBLIC_BASE_URL=http://localhost:3000` to `NEXT_PUBLIC_BASE_URL="http://localhost:3000"`), normalizes `=` spacing, and supports in-place formatting with `--write`.
 - **Comment cleaning (`clean`)**: Strips comments from `.env` files while preserving all variable values and spacing (supports in-place cleaning with `--force`).
 - **Inline comments support**: Automatically detects and preserves `#` comments at the end of variable lines.
 - **`export` syntax support**: Seamlessly handles `.env` files that use `export KEY=VALUE` syntax.
